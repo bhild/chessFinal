@@ -4,11 +4,16 @@ public class King extends Peices implements Comparable<Peices>
 {
 	private boolean color = false;
 	private int[] position = new int[2];
-	private int numPeice;
 	@Override
 	public boolean isValidMove(int[] a) 
 	{
-		return false;
+		boolean yT = false;
+		boolean xT = false;
+		if(a[0]==position[0]||a[0]-1==position[0]||a[0]+1==position[0]) xT=true;
+		if(a[1]==position[1]||a[1]-1==position[1]||a[1]+1==position[1]) yT=true;
+		System.out.println(a[0]+"\t"+a[1]);
+		return xT&&yT;
+
 	}
 
 	King(int x,int y,boolean color)
@@ -28,8 +33,13 @@ public class King extends Peices implements Comparable<Peices>
 	}
 
 	@Override
-	public int compareTo(Peices o) {
-		// TODO Auto-generated method stub
+	public int compareTo(Peices o)
+	{
+		if(o.getClass() == Peices.class) return 0;
+		if(o.getColor()==this.getColor()) 
+		{
+			return 1;
+		}
 		return 0;
 	}
 	@Override
@@ -46,5 +56,11 @@ public class King extends Peices implements Comparable<Peices>
 	public void setPos(int[] pos)
 	{
 		position = pos;
+	}
+	@Override
+	public String getClassChar() 
+	{
+		if(color)return "K";
+		return "k";
 	}
 }
