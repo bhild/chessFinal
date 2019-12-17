@@ -4,10 +4,19 @@ public class Knight extends Peices implements Comparable<Peices>
 {
 	private boolean color = false;	
 	private int[] position = new int[2];
-	private int numPeice;
 	@Override
 	public boolean isValidMove(int[] a) 
 	{
+		if(a[0]==position[0]-2||a[0]==position[0]+2) 
+		{
+			if(a[1]==position[1]-1||a[1]==position[1]+1)
+				return true;
+		}
+		if(a[1]==position[1]-2||a[1]==position[1]+2) 
+		{
+			if(a[1]==position[0]-1||a[0]==position[0]+1)
+				return true;
+		}
 		return false;
 	}
 
@@ -28,11 +37,15 @@ public class Knight extends Peices implements Comparable<Peices>
 	}
 
 	@Override
-	public int compareTo(Peices o) {
-		// TODO Auto-generated method stub
+	public int compareTo(Peices o)
+	{
+		if(o.getClass() == Peices.class) return 0;
+		if(o.getColor()==this.getColor()) 
+		{
+			return 1;
+		}
 		return 0;
-	}
-	@Override
+	}	@Override
 	public void setX(int x)
 	{
 		position[0]=x;
@@ -46,5 +59,11 @@ public class Knight extends Peices implements Comparable<Peices>
 	public void setPos(int[] pos)
 	{
 		position = pos;
+	}
+	@Override
+	public String getClassChar() 
+	{
+		if(color)return "N";
+		return "n";
 	}
 }
