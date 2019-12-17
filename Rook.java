@@ -14,7 +14,7 @@ public class Rook extends Peices implements Comparable<Peices>
 	@Override
 	public boolean isValidMove(int[] a) 
 	{
-		if(a[0]==position[0]||a[1]==position[1])
+		if((a[0]==position[0]||a[1]==position[1]))
 		{
 			return true;
 		}
@@ -29,8 +29,13 @@ public class Rook extends Peices implements Comparable<Peices>
 		return color;
 	}
 	@Override
-	public int compareTo(Peices o) {
-		// TODO Auto-generated method stub
+	public int compareTo(Peices o)
+	{
+		if(o.getClass() == Peices.class) return 0;
+		if(o.getColor()==this.getColor()) 
+		{
+			return 1;
+		}
 		return 0;
 	}
 	@Override
@@ -47,5 +52,11 @@ public class Rook extends Peices implements Comparable<Peices>
 	public void setPos(int[] pos)
 	{
 		position = pos;
+	}
+	@Override
+	public String getClassChar() 
+	{
+		if(color)return "R";
+		return "r";
 	}
 }
