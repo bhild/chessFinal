@@ -1,7 +1,8 @@
 package chess;
 
-public class Peices 
+public class Peices implements Comparable<Peices>
 {
+	
 	private boolean color = false;
 	//false == balck
 	//true == white
@@ -37,5 +38,12 @@ public class Peices
 	public void setPos(int[] pos)
 	{
 		position = pos;
+	}
+	public String getClassChar() {
+		return "-";
+	}
+	public int compareTo(Peices o) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
