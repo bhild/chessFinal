@@ -1,5 +1,4 @@
 package chess;
-import chess.ChessDriver;
 
 public class Pawn extends Peices implements Comparable<Peices>
 {
@@ -8,12 +7,25 @@ public class Pawn extends Peices implements Comparable<Peices>
 	@Override
 	public boolean isValidMove(int[] a) 
 	{
-		if(a[0]!=position[0]) {return false;}
-		if(position[1]==1&&((a[0]==position[0]&&a[1]>=3&&color)||!color&&(a[0]==position[0]&&a[1]<=5)))
-		{
-			return true;
-		}else if(a[1]-1==position[1]) {
-			return true;
+		if(color) {
+			if(position[1]==6&&(a[1]+1==position[1]||a[1]+2==position[1]))
+			{
+				return true;
+			}
+			else if(a[1]+1==position[1]) 
+			{
+				return true;
+			}
+		}
+		else {
+			if(position[1]==1&&(a[1]-1==position[1]||a[1]-2==position[1]))
+			{
+				return true;
+			}
+			else if(a[1]-1==position[1]) 
+			{
+				return true;
+			}
 		}
 		return false;
 	}
@@ -33,8 +45,13 @@ public class Pawn extends Peices implements Comparable<Peices>
 		return color;
 	}
 	@Override
-	public int compareTo(Peices o) {
-		// TODO Auto-generated method stub
+	public int compareTo(Peices o)
+	{
+		if(o.getClass() == Peices.class) return 0;
+		if(o.getColor()==this.getColor()) 
+		{
+			return 1;
+		}
 		return 0;
 	}
 	@Override
@@ -51,5 +68,11 @@ public class Pawn extends Peices implements Comparable<Peices>
 	public void setPos(int[] pos)
 	{
 		position = pos;
+	}
+	@Override
+	public String getClassChar() 
+	{
+		if(color)return "P";
+		return "p";
 	}
 }
