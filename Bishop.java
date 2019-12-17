@@ -2,23 +2,22 @@ package chess;
 
 public class Bishop extends Peices implements Comparable<Peices>
 {
-	private boolean color = false;
+	private boolean color = false;	
 	private int[] position = new int[2];
 	@Override
 	public boolean isValidMove(int[] a) 
 	{
-		for(int i =0;i<8;i++) 
+		for(int i = 0; i<8;i++)
 		{
-			for(int j=0;j<8;j++) 
-			{
-				if(a[0]==i&&a[1]==j)
-				{
-					return true;
-				}
-			}
+			if(position[0]+i==a[0]&&position[1]+i==a[1])return true;
+			if(position[0]+i==a[0]&&position[1]-i==a[1])return true;
+			if(position[0]-i==a[0]&&position[1]+i==a[1])return true;
+			if(position[0]-i==a[0]&&position[1]-i==a[1])return true;
+
 		}
 		return false;
 	}
+
 	Bishop(int x,int y,boolean color)
 	{
 		this.color=color;
@@ -35,8 +34,13 @@ public class Bishop extends Peices implements Comparable<Peices>
 		return color;
 	}
 	@Override
-	public int compareTo(Peices o) {
-		// TODO Auto-generated method stub
+	public int compareTo(Peices o)
+	{
+		if(o.getClass() == Peices.class) return 0;
+		if(o.getColor()==this.getColor()) 
+		{
+			return 1;
+		}
 		return 0;
 	}
 	@Override
@@ -53,5 +57,11 @@ public class Bishop extends Peices implements Comparable<Peices>
 	public void setPos(int[] pos)
 	{
 		position = pos;
+	}
+	@Override
+	public String getClassChar() 
+	{
+		if(color)return "B";
+		return "b";
 	}
 }
