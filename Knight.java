@@ -1,6 +1,6 @@
 package chess;
 
-public class Knight extends Peices implements Comparable<Peices>
+public class Knight extends Pieces implements Comparable<Pieces>
 {
 	private boolean color = false;	
 	private int[] position = new int[2];
@@ -37,9 +37,9 @@ public class Knight extends Peices implements Comparable<Peices>
 	}
 
 	@Override
-	public int compareTo(Peices o)
+	public int compareTo(Pieces o)
 	{
-		if(o.getClass() == Peices.class) return 0;
+		if(o.getClass() == Pieces.class) return 0;
 		if(o.getColor()==this.getColor()) 
 		{
 			return 1;
