@@ -16,15 +16,15 @@ import javax.swing.*;
  
 public class Board 
 {
-	public static Peices[][] pieces = {
+	private static Pieces[][] pieces = {
 			{new Rook(0,0,false),new Knight(1,0,false),new Bishop(2,0,false),new Queen(3,0,false),
 				new King(4,0,false),new Bishop(5,0,false),new Knight(6,0,false),new Rook(7,0,false)},
 			{new Pawn(0,1,false),new Pawn(1,1,false),new Pawn(2,1,false),new Pawn(3,1,false),
 					new Pawn(4,1,false),new Pawn(5,1,false),new Pawn(6,1,false),new Pawn(7,1,false)},
-			{new Peices(),new Peices(),new Peices(),new Peices(),new Peices(),new Peices(),new Peices(),new Peices()},
-			{new Peices(),new Peices(),new Peices(),new Peices(),new Peices(),new Peices(),new Peices(),new Peices()},
-			{new Peices(),new Peices(),new Peices(),new Peices(),new Peices(),new Peices(),new Peices(),new Peices()},
-			{new Peices(),new Peices(),new Peices(),new Peices(),new Peices(),new Peices(),new Peices(),new Peices()},
+			{new Pieces(),new Pieces(),new Pieces(),new Pieces(),new Pieces(),new Pieces(),new Pieces(),new Pieces()},
+			{new Pieces(),new Pieces(),new Pieces(),new Pieces(),new Pieces(),new Pieces(),new Pieces(),new Pieces()},
+			{new Pieces(),new Pieces(),new Pieces(),new Pieces(),new Pieces(),new Pieces(),new Pieces(),new Pieces()},
+			{new Pieces(),new Pieces(),new Pieces(),new Pieces(),new Pieces(),new Pieces(),new Pieces(),new Pieces()},
 			{new Pawn(0,6,true),new Pawn(1,6,true),new Pawn(2,6,true),new Pawn(3,6,true),
 				new Pawn(4,6,true),new Pawn(5,6,true),new Pawn(6,6,true),new Pawn(7,6,true)},
 			{new Rook(0,7,true),new Knight(1,7,true),new Bishop(2,7,true),new Queen(3,7,true),
@@ -66,16 +66,16 @@ public class Board
 				}
 				System.out.println();
 			}
-			System.out.println("Enter the peice postion of the peice you want to move! (int x, int y)");
+			System.out.println("Enter the Piece postion of the Piece you want to move! (int x, int y)");
 			b = sc1.nextInt();
 			a = sc1.nextInt();
-			System.out.println("Enter the new peice postion of the peice you want to move!");
+			System.out.println("Enter the new Piece postion of the Piece you want to move!");
 			d = sc1.nextInt();
 			c = sc1.nextInt();
 			if(pieces[a][b].isValidMove(new int[] {d,c})&&pieces[a][b].compareTo(pieces[c][d])!=1) 
 			{
 				pieces[c][d] = pieces[a][b];
-				pieces[a][b] = new Peices();
+				pieces[a][b] = new Pieces();
 				pieces[c][d].setPos(new int[] {d,c});
 			}
 		}
