@@ -1,6 +1,6 @@
 package chess;
 
-public class Peices implements Comparable<Peices>
+public class Pieces implements Comparable<Pieces>
 {
 	
 	private boolean color = false;
@@ -21,7 +21,7 @@ public class Peices implements Comparable<Peices>
 	{
 		return color;
 	}
-	public Peices() {
+	public Pieces() {
 		
 	}
 	public boolean isValidMove(int[] a) {
@@ -42,7 +42,7 @@ public class Peices implements Comparable<Peices>
 	public String getClassChar() {
 		return "-";
 	}
-	public int compareTo(Peices o) {
+	public int compareTo(Pieces o) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
